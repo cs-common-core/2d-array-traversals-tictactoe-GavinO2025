@@ -9,7 +9,21 @@ public class Play {
         while(!game.isGameOver()) {
             game.printBoard();
             // your code here
+            System.out.println("What Row are you playing in");
+            int row = scanner.nextInt();
+            System.out.println("What Collum are you playing in");
+            int col = scanner.nextInt();
+            game.play(row -1, col -1);
+            if(game.isGameOver()){
+                if (game.getWinner() >0){
+                    System.out.println("Player " + game.getWinner()+" Wins!" );
+                }else{
+                    System.out.println("Board is Full, Game Over");
+                }
+            }
+            System.out.println();
         }
+        game.printBoard();
         scanner.close();
     }
 }
